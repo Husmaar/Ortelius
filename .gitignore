@@ -1,0 +1,5 @@
+Ortelius/bin/
+Ortelius/obj/
+*.psd
+.vs/
+OrteliusSetupWindows/Release/OrteliusSetupWindows.msi

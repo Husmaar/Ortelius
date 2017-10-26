@@ -1,0 +1,91 @@
+﻿<Window x:Class="dk.marten.ortelius.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ortelius 4.0.0.0" Height="667.4" Width="525" Icon="ortelius.ico" Background="White" FontSize="11" FontFamily="Lucida Sans Unicode" Closing="OrteliusClosing" Loaded="MainFormLoad">
+
+    <Grid>
+        <Menu Margin="0,0,0,0" VerticalAlignment="Top" IsMainMenu="True" Background="{DynamicResource AccentColor}" Foreground="White">
+            <MenuItem Header="_File" Foreground="White">
+                <MenuItem Header="_New" Click="NewProjectClick"/>
+                <MenuItem Header="_Open" Click="OpenProjectClick"/>
+                <MenuItem Header="_Save" Click="SaveProjectClick"/>
+                <MenuItem Header="Save as" Click="SaveProjectAsClick"/>
+                <Separator/>
+                <MenuItem Header="_Exit" Click="ExitClick"/>
+            </MenuItem>
+            <MenuItem Header="Documentation" Foreground="White">
+                <MenuItem Header="Add files" Click="AddFileClick"/>
+                <MenuItem Header="Add folder" Click="AddFolderClick"/>
+                <MenuItem Header="Choose destination" Click="ChooseDestinationClick"/>
+                <MenuItem Header="Build documentation" Click="BuildDocumentationClick"/>
+            </MenuItem>
+            <MenuItem Header="Donate" Click="DonateClick" Foreground="White">
+            </MenuItem>
+        </Menu>
+
+        <TextBox x:Name="introHeader" Height="24" Margin="83,30,10,0" TextWrapping="Wrap" VerticalAlignment="Top" SelectionBrush="#FFDC342C" TextChanged="IntroHeaderChanged">
+        </TextBox>
+
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,35,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" Width="52">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{DynamicResource LabelText}"/>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <TextBox x:Name="introText" Height="127" Margin="83,63,10,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="IntroTextChanged"/>
+
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,64,0,0" TextWrapping="Wrap" Text="Intro text" VerticalAlignment="Top" Width="52">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{DynamicResource LabelText}"/>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <ListBox x:Name="FileList" Margin="83,199,10,166"  BorderBrush="{x:Null}" Foreground="Black" SelectionMode="Extended">
+            <ListBox.Background>
+                <SolidColorBrush Color="{DynamicResource InputField}"/>
+            </ListBox.Background>
+        </ListBox>
+
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,201,0,0" TextWrapping="Wrap" Text="Files" VerticalAlignment="Top" Width="52">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{DynamicResource LabelText}"/>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <TextBox x:Name="xmlPath" Height="24" Margin="210,0,10,102" TextWrapping="Wrap" VerticalAlignment="Bottom">
+        </TextBox>
+
+
+
+        <Button x:Name="RemoveBtn" Content="Remove file(s)" HorizontalAlignment="Left" Height="24" Margin="84,0,0,143" VerticalAlignment="Bottom" Width="128" Click="RemoveClassClick" >
+        </Button>
+
+        <Button x:Name="AddFolderBtn" Content="Add folder" Height="24" Margin="213,0,140,143" VerticalAlignment="Bottom" Click="AddFolderClick">
+        </Button>
+
+        <Button x:Name="AddFileBtn" Content="Add file(s)" HorizontalAlignment="Right" Height="24" Margin="0,0,11,143" VerticalAlignment="Bottom" Width="128" Click="AddFileClick">
+        </Button>
+
+        <TextBlock HorizontalAlignment="Left" Height="18" Margin="10,0,0,68" TextWrapping="Wrap" Text="Style" VerticalAlignment="Bottom" Width="52">
+            <TextBlock.Foreground>
+                <SolidColorBrush Color="{DynamicResource LabelText}"/>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <Button x:Name="DestinationBtn" Content="Choose destination" HorizontalAlignment="Left" Height="24" Margin="84,0,0,102" VerticalAlignment="Bottom" Width="125" Click="ChooseDestinationClick" >
+        </Button>
+
+        <ComboBox x:Name="StyleCB" Height="24" Margin="84,0,230,65" VerticalAlignment="Bottom" Background="#FFF0F0F0" BorderBrush="{x:Null}" SelectionChanged="StyleCB_SelectionChanged">
+            <ComboBox.OpacityMask>
+                <SolidColorBrush Color="{DynamicResource InputField}"/>
+            </ComboBox.OpacityMask>
+        </ComboBox>
+
+        <CheckBox x:Name="showAfterBuildCB" Content="Show documentation when build" Height="24" Margin="0,0,10,62" VerticalAlignment="Bottom" Click="ShowAfterBuildChanged" HorizontalAlignment="Right" Width="193"/>
+
+        <Button x:Name="BuildButton" Content="Build documentation" Height="24" Margin="84,0,10,22" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Click="BuildDocumentationClick"/>
+
+        <ProgressBar x:Name="Progress" Height="4" VerticalAlignment="Bottom" Value="0"/>
+
+    </Grid>
+</Window>
